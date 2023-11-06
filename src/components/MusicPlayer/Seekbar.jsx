@@ -1,5 +1,15 @@
 import React from 'react';
 
+/**
+ * Рендерит панель прокрутки для воспроизведения музыки.
+ *
+ * @param {Object} props - Свойства компонента.
+ * @param {number} props.duration - Продолжительность музыки.
+ * @param {number} props.seekTime - Время, на которое нужно перемотать музыку.
+ * @param {function} props.onSeek - Функция обратного вызова, вызываемая при перемещении ползунка.
+ * @param {function} props.onEnded - Функция обратного вызова, вызываемая после окончания музыки.
+ * @returns {JSX.Element} - Рендерится компонент панели прокрутки.
+ */
 const Seekbar = ({ value, min, max, onInput, setSeekTime, appTime }) => {
   // converts the time to format 0:00
   const getTime = (time) => `${Math.floor(time / 60)}:${(`0${Math.floor(time % 60)}`).slice(-2)}`;

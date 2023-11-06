@@ -8,12 +8,17 @@ import Seekbar from './Seekbar';
 import Track from './Track';
 import VolumeBar from './VolumeBar';
 
+/**
+ * Рендерит плеер музыки.
+ *
+ * @returns {JSX.Element} - Рендерится компонент плеера музыки.
+ */
 const MusicPlayer = () => {
   const { activeSong, currentSongs, currentIndex, isActive, isPlaying } = useSelector((state) => state.player);
   const [duration, setDuration] = useState(0);
   const [seekTime, setSeekTime] = useState(0);
   const [appTime, setAppTime] = useState(0);
-  const [volume, setVolume] = useState(0.3);
+  const [volume, setVolume] = useState(0.01);
   const [repeat, setRepeat] = useState(false);
   const [shuffle, setShuffle] = useState(false);
   const dispatch = useDispatch();
@@ -22,6 +27,9 @@ const MusicPlayer = () => {
     if (currentSongs.length) dispatch(playPause(true));
   }, [currentIndex]);
 
+  /**
+   * Обрабатывает нажатие кнопки воспроизведения/паузы.
+   */
   const handlePlayPause = () => {
     if (!isActive) return;
 
@@ -32,6 +40,9 @@ const MusicPlayer = () => {
     }
   };
 
+  /**
+   * Обрабатывает нажатие кнопки следующей песни.
+   */
   const handleNextSong = () => {
     dispatch(playPause(false));
 
@@ -42,6 +53,9 @@ const MusicPlayer = () => {
     }
   };
 
+  /**
+   * Обрабатывает нажатие кнопки предыдущей песни.
+   */
   const handlePrevSong = () => {
     if (currentIndex === 0) {
       dispatch(prevSong(currentSongs.length - 1));
