@@ -1,34 +1,30 @@
 import {Link} from 'react-router-dom';
 import {useDispatch} from "react-redux";
 
-import PlayPause from "./PlayPause";
+import PlayPauseZona from "./PlayPauseZona";
 import {playPause, setActiveSong} from "../redux/features/playerSlice";
 
-const SongCard = ({song, i, activeSong, isPlaing, data}) => {
+const SongCard = ({song, i, activeSong, isPlaying, data}) => {
+    const dispatch = useDispatch();
 
     const handlePauseClick = () => {
-
+        dispatch(playPause(false));
     }
 
     const handlePlayClick = () => {
-
+        dispatch(setActiveSong({song, data, i}));
+        dispatch(playPause(true));
     }
 
     return (<div
         className="flex flex-col w-[250px] p-4 bg-white/5 bg-opacity-80 backdrop-blur-sm animate-slideup rounded-lg cursor-pointer">
-        <div className="relative w-full h-56 group">
-            <div
-                className={`absolute inset-0 justify-center items-center bg-black bg-opacity-50 group-hover:flex ${activeSong === song.title ? 'flex bg-black bg-opacity-70' : 'hidden'}`}>
-                <PlayPause
-                    isPlaing={isPlaing}
-                    activeSong={activeSong}
-                    song={song}
-                    handlePause={handlePauseClick}
-                    handlePlay={handlePlayClick}
-                />
-            </div>
-            <img src={song.images?.coverart} alt="song_image"/>
-        </div>
+        <PlayPauseZona
+            isPlaying={isPlaying}
+            activeSong={activeSong}
+            song={song}
+            handlePause={handlePauseClick}
+            handlePlay={handlePlayClick}
+        />
         <div className="mt-4 flex flex-col">
             <p className="font-semibold text-lg text-white truncate">
                 <Link to={`/songs/${song.key}`}>

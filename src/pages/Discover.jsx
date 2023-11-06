@@ -5,7 +5,7 @@ import {useDispatch, useSelector} from "react-redux";
 
 const Discover = () => {
     const dispatch = useDispatch();
-    const { activeSong, isPlaing} = useSelector((state) => state.player);
+    const { activeSong, isPlaying} = useSelector((state) => state.player);
     const {data, isFetching, error} = useGetTopChartsQuery();
     const genreTitle = 'Pop';
 
@@ -35,8 +35,8 @@ const Discover = () => {
                         <SongCard
                             song={song}
                             i={i}
-                            key={song}
-                            isPlaing={isPlaing}
+                            key={song.key}
+                            isPlaying={isPlaying}
                             activeSong={activeSong}
                             data={data}
                         />
