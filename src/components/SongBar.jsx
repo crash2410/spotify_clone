@@ -1,8 +1,19 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-import PlayPause from './PlayPauseZona';
+import PlayPause from './PlayPause';
 
+/**
+ * Компонент для отображения строки с информацией о песне.
+ *
+ * @param {Object} song - Данные песни.
+ * @param {number} i - Индекс песни в списке.
+ * @param {string} artistId - Идентификатор артиста.
+ * @param {boolean} isPlaying - Состояние воспроизведения.
+ * @param {Object} activeSong - Активная песня.
+ * @param {Function} handlePauseClick - Обработчик клика на кнопку паузы.
+ * @param {Function} handlePlayClick - Обработчик клика на кнопку воспроизведения.
+ */
 const SongBar = ({ song, i, artistId, isPlaying, activeSong, handlePauseClick, handlePlayClick }) => (
   <div className={`w-full flex flex-row items-center hover:bg-[#4c426e] ${activeSong?.title === song?.title ? 'bg-[#4c426e]' : 'bg-transparent'} py-2 p-4 rounded-lg cursor-pointer mb-2`}>
     <h3 className="font-bold text-base text-white mr-3">{i + 1}.</h3>
@@ -35,8 +46,9 @@ const SongBar = ({ song, i, artistId, isPlaying, activeSong, handlePauseClick, h
           isPlaying={isPlaying}
           activeSong={activeSong}
           song={song}
+          i={i}
           handlePause={handlePauseClick}
-          handlePlay={() => handlePlayClick(song, i)}
+          handlePlay={(song, i) => handlePlayClick(song, i)}
         />
       )
       : null}
