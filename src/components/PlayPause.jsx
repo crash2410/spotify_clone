@@ -8,7 +8,6 @@ const PlayPause = ({
                            handlePause,
                            handlePlay
                    }) => {
-    console.log(song)
 
     return (isPlaying && activeSong?.title === song.title) ? (
         <FaPauseCircle size="2rem" className="text-gray-200" onClick={handlePause}/>
