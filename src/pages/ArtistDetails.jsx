@@ -14,8 +14,6 @@ const ArtistDetails = () => {
     // Получаем данные и состояние из Redux
     const {activeSong, isPlaying, spotify} = useSelector((state) => state.player);
     const {data: artistData, isFetching: isFetchingArtistDetails, error} = useGetArtistDetailsQuery({artistId});
-    console.log(artistData);
-    console.log(artistData?.data[0].views?.["top-songs"]?.data);
 
 
     // Отображение загрузчика, ошибки или контента
