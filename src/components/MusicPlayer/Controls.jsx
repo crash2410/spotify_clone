@@ -3,19 +3,18 @@ import {MdSkipNext, MdSkipPrevious} from 'react-icons/md';
 import {BsArrowRepeat, BsFillPauseFill, BsFillPlayFill, BsShuffle} from 'react-icons/bs';
 
 /**
- + * Рендерит элементы управления для плеера музыки.
- + *
- + * @param {boolean} isPlaying - Указывает, играет ли музыка в данный момент.
- + * @param {boolean} repeat - Указывает, должна ли музыка повторяться.
- + * @param {function} setRepeat - Функция обратного вызова для установки состояния повтора.
- + * @param {boolean} shuffle - Указывает, должна ли музыка быть перемешана.
- + * @param {function} setShuffle - Функция обратного вызова для установки состояния перемешивания.
- + * @param {Array} currentSongs - Массив текущих песен.
- + * @param {function} handlePlayPause - Функция обратного вызова для обработки воспроизведения/паузы.
- + * @param {function} handlePrevSong - Функция обратного вызова для обработки предыдущей песни.
- + * @param {function} handleNextSong - Функция обратного вызова для обработки следующей песни.
- + * @returns {JSX.Element} - Рендерится компонент элементов управления.
- **/
+ * Компонент для отображения контролов воспроизведения (кнопки воспроизведения, паузы, следующей и предыдущей песни).
+ *
+ * @param {boolean} isPlaying - Состояние воспроизведения.
+ * @param {boolean} repeat - Состояние повтора.
+ * @param {function} setRepeat - Функция для установки состояния повтора.
+ * @param {boolean} shuffle - Состояние перемешивания.
+ * @param {function} setShuffle - Функция для установки состояния перемешивания.
+ * @param {Array} currentSongs - Массив текущих песен.
+ * @param {function} handlePlayPause - Обработчик клика на кнопку воспроизведения/паузы.
+ * @param {function} handlePrevSong - Обработчик клика на кнопку предыдущей песни.
+ * @param {function} handleNextSong - Обработчик клика на кнопку следующей песни.
+ */
 const Controls = ({
                       isPlaying,
                       repeat,

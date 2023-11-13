@@ -1,5 +1,15 @@
 import {FaPauseCircle, FaPlayCircle} from "react-icons/all";
 
+/**
+ * Компонент кнопки воспроизведения/паузы в зоне.
+ *
+ * @param {boolean} isPlaying - Флаг, указывающий, проигрывается ли воспроизведение в данный момент.
+ * @param {object} activeSong - Активная песня.
+ * @param {object} song - Песня.
+ * @param {function} handlePause - Функция для приостановки воспроизведения.
+ * @param {function} handlePlay - Функция для начала воспроизведения.
+ * @returns {JSX.Element} Отображение компонента кнопки воспроизведения/паузы в зоне.
+ */
 const PlayPauseZona = ({isPlaying, activeSong, song, handlePause, handlePlay}) => {
 
     return (

@@ -1,5 +1,12 @@
 import {FaPauseCircle, FaPlayCircle} from "react-icons/all";
 
+/**
+ * Компонент кнопки воспроизведения/паузы.
+ *
+ * @param {boolean} isPlaying - Флаг, указывающий, проигрывается ли воспроизведение в данный момент.
+ * @param {function} togglePlay - Функция для переключения состояния воспроизведения/паузы.
+ * @returns {JSX.Element} Отображение компонента кнопки воспроизведения/паузы.
+ */
 const PlayPause = ({
                        i,
                            isPlaying,

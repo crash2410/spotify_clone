@@ -22,7 +22,6 @@ const SongDetails = () => {
     const handlePauseClick = () => {
         dispatch(playPause(false));
     }
-
     const handlePlayClick = (song, i) => {
         dispatch(setActiveSong({song, data: songRelated, i}));
         dispatch(playPause(true));
@@ -41,6 +40,8 @@ const SongDetails = () => {
                 songData={songData}
             />
 
+
+
             {/* Текст песни */}
             <div className="mb-10">
                 <h2 className="text-white text-3xl font-bold">Lyrics:</h2>
@@ -48,10 +49,10 @@ const SongDetails = () => {
                     {
                         songData?.sections[1].type === 'LYRICS' ?
                             songData?.sections[1].text.map((line, i) => (
-                                <p key={i} className="text-gray-400 text-base my-1 ml-10">
+                                <p key={line.key} className="text-gray-400 text-base my-1 ml-10">
                                     {line}
                                 </p>
-                            )) : <p key={i} className="text-gray-400 text-base my-1">Sorry, no lyrics found!</p>
+                            )) : <p key={Math.floor(Math.random() * 1000000)} className="text-gray-400 text-base my-1">Sorry, no lyrics found!</p>
                     }
                 </div>
             </div>

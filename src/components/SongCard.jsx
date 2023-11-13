@@ -4,14 +4,36 @@ import {useDispatch} from "react-redux";
 import PlayPauseZona from "./PlayPauseZona";
 import {playPause, setActiveSong} from "../redux/features/playerSlice";
 
+
+/**
+ * Компонент карточки песни.
+ *
+ * Отображает информацию о песне и кнопки для воспроизведения и паузы.
+ *
+ * @param {Object} song - Информация о песне.
+ * @param {number} i - Индекс песни.
+ * @param {Object} activeSong - Активная песня.
+ * @param {boolean} isPlaying - Состояние воспроизведения.
+ * @param {Object} data - Дополнительные данные.
+ */
 const SongCard = ({song, i, activeSong, isPlaying, data}) => {
     const dispatch = useDispatch();
 
 
+    /**
+     * Обработчик клика на кнопку паузы.
+     *
+     * Отправляет действие для остановки воспроизведения песни.
+     */
     const handlePauseClick = () => {
         dispatch(playPause(false));
     }
 
+    /**
+     * Обработчик клика на кнопку воспроизведения.
+     *
+     * Отправляет действие для установки активной песни и начала воспроизведения.
+     */
     const handlePlayClick = () => {
         dispatch(setActiveSong({song, data, i}));
         dispatch(playPause(true));

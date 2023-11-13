@@ -12,6 +12,18 @@ import 'swiper/css';
 import 'swiper/css/free-mode';
 import PlayPause from "./PlayPause";
 
+/**
+ * Компонент карточки популярной песни в топ-чартах.
+ *
+ * Отображает информацию о песне и кнопки для воспроизведения и паузы.
+ *
+ * @param {Object} song - Информация о песне.
+ * @param {number} i - Индекс песни.
+ * @param {boolean} isPlaying - Состояние воспроизведения.
+ * @param {Object} activeSong - Активная песня.
+ * @param {function} handlePauseClick - Обработчик клика на кнопку паузы.
+ * @param {function} handlePlayClick - Обработчик клика на кнопку воспроизведения.
+ */
 const TopChartCard = ({song, i, isPlaying, activeSong, handlePauseClick, handlePlayClick}) => (
     <div className="w-full flex flex-row items-center hover:bg-[#4c426e] py-2 p-4 rounded-lg cursor-pointer mb-2">
         <h3 className="fot-bold text-base text-white mr-3">
@@ -42,6 +54,9 @@ const TopChartCard = ({song, i, isPlaying, activeSong, handlePauseClick, handleP
     </div>
 )
 
+/**
+ * Компонент для отображения популярных песен и популярных артистов.
+ */
 const TopPlay = () => {
     const dispatch = useDispatch();
     const {activeSong, isPlaying} = useSelector((state) => state.player);

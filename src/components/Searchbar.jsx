@@ -4,10 +4,20 @@ import {useNavigate} from "react-router-dom";
 
 import {FiSearch} from "react-icons/all";
 
+/**
+ * Компонент поисковой строки.
+ *
+ * Отвечает за отображение и логику работы поисковой строки.
+ */
 const Searchbar = () => {
     const navigate = useNavigate();
     const [searchTerm, setSearchTerm] = useState('');
 
+    /**
+     * Обработчик отправки формы.
+     *
+     * Препятствует отправке формы по умолчанию и перенаправляет пользователя на страницу с результатами поиска.
+     */
     const handleSubmit = (e) => {
         e.preventDefault();
         navigate(`/search/${searchTerm}`);

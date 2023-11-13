@@ -5,12 +5,20 @@ import {useSelector} from "react-redux";
 import {Error, Loader, SongCard} from "../components";
 import {useGetSongByCountryQuery} from "../redux/services/shazamCore";
 
+/**
+ * Отображает список песен на основе страны пользователя.
+ * Использует хук useGetSongByCountryQuery для получения списка песен.
+ * Отображает индикатор загрузки во время получения данных и сообщение об ошибке, если произошла ошибка.
+ *
+ * @returns JSX элемент
+ */
 const AroundYou = () => {
     const [country, setCountry] = useState("");
     const [loading, setLoading] = useState(true);
     const {activeSong, isPlaying} = useSelector((state) => state.player);
     const {data, isFetching, error} = useGetSongByCountryQuery(country);
 
+    // Получение страны пользователя с помощью API IPify и установка ее в состояние.
     useEffect(() => {
         axios
             .get(`https://geo.ipify.org/api/v2/country?apiKey=at_7We1JBLJcBXcvoFzMsD51XwkmnD45`)

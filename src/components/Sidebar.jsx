@@ -1,9 +1,15 @@
-import {useEffect, useState} from "react";
+import {useState} from "react";
 import {NavLink} from "react-router-dom";
 import {HiOutlineMenu, RiCloseLine} from "react-icons/all";
 import {logo} from "../assets";
 import {links} from "../assets/constants";
 
+
+/**
+ * Компонент для отображения навигационных ссылок в боковой панели.
+ *
+ * @param {Function} handleClick - Обработчик клика на ссылку.
+ */
 const NavLinks = ({handleClick}) => (
     <div className="mt-10">
         {links.map((item) => (
@@ -19,6 +25,10 @@ const NavLinks = ({handleClick}) => (
         ))}
     </div>
 )
+
+/**
+ * Компонент боковой панели.
+ */
 const Sidebar = () => {
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
